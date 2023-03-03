@@ -37,56 +37,47 @@ namespace OtelRezervasyon.UI
                 }
             }
             cmbOdalar.DataSource = doluOdalar;
+
             EkHizmetleriEkle();
         }
-        
+
         public int KalinacakGunSayisi(DateTime GirisTarihi, DateTime CikisTarihi)
         {
             return (GirisTarihi - CikisTarihi).Days;
         }
+        double toplam = 0;
+        double hizmetToplam = 0;
+        double araToplam = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            double toplam=0;
+
             foreach (OdaRezervasyon item in odaRezervasyonlari)
             {
                 if (cmbOdalar.SelectedValue.ToString() == item.Oda.Numarasi.ToString())
                 {
-                    DateTime dt = Convert.ToDateTime(maskedTextBox1.Text);
-                    item.CikisTarihi =dt;
-                    int kalinanGunSayisi = KalinacakGunSayisi(item.CikisTarihi,item.GirisTarihi);
+
+                    int kalinanGunSayisi = KalinacakGunSayisi(item.CikisTarihi, item.GirisTarihi);
 
                     item.EkstraHizmetler = EkstraHesapla();
-                    double hizmetToplam=hizmetler.Sum(a=>a.HizmetFiyati);
-                    
-                    double araToplam = ((kalinanGunSayisi * item.Oda.Fiyat));
-                     toplam=araToplam+hizmetToplam;
-                    int sayac = 1;
-                    //todo liste görünümü düzenle
-                    ListViewItem li = new ListViewItem();
-                    li.Text = (sayac++).ToString();
-                    li.SubItems.Add(item.Oda.Numarasi.ToString());
-                    li.SubItems.Add(item.Musteri.AdSoyad);
-                    li.SubItems.Add(item.Musteri.TC);
-                    li.SubItems.Add(item.GirisTarihi.ToString());
-                    li.SubItems.Add(item.CikisTarihi.ToString());
-                    li.SubItems.Add(kalinanGunSayisi.ToString());
-                    li.SubItems.Add(hizmetToplam.ToString());
-                    li.SubItems.Add(araToplam.ToString());
-                    li.SubItems.Add(toplam.ToString());
-                    
-                    li.Tag = item;
-                    lstSonuc.Items.Add(li);
-                    item.Oda.OdaDurumu = 3;
-                    
-                } 
+                    hizmetToplam = hizmetler.Sum(a => a.HizmetFiyati);
+
+                    araToplam = ((kalinanGunSayisi * item.Oda.Fiyat));
+                    toplam = araToplam + hizmetToplam;
+
+                    //todo: listte ödeme bilgilerini de listele
+                    KayitlariListele(item, odaRezervasyonlari);
+
+                    item.Oda.OdaDurumu = 1;
+                    lblTutar.Text = toplam.ToString() + " TL";
+                }
             }
         }
         List<Hizmet> hizmetler = new List<Hizmet>();
         private List<Hizmet> EkstraHesapla()
         {
-            foreach(CheckBox item in flEkstra.Controls)
+            foreach (CheckBox item in flEkstra.Controls)
             {
-               if(item.Checked)
+                if (item.Checked)
                 {
                     hizmetler.Add((Hizmet)item.Tag);
                 }
@@ -107,10 +98,30 @@ namespace OtelRezervasyon.UI
             flEkstra.Controls.Add(new CheckBox() { Text = "Masaj", Tag = new Hizmet() { HizmetAdi = "Masaj", HizmetFiyati = 10 } });
             flEkstra.Controls.Add(new CheckBox() { Text = "Sauna", Tag = new Hizmet() { HizmetAdi = "Sauna", HizmetFiyati = 10 } });
 
-           
-           
+
+
         }
 
+        private void btnOdemeYap_Click(object sender, EventArgs e)
+        {
 
+            MessageBox.Show("Oda Ücreti :" + araToplam + " TL\n Ekstar Hizmet Ücretleri: " + hizmetToplam + " TL\n Toplam Ücret: " + toplam + " TL", "Ödeme Ekranı", MessageBoxButtons.OK);
+            toplam = 0;
+            lblTutar.Text = toplam.ToString() + " TL";
+        }
+
+        private void KayitlariListele(OdaRezervasyon item, List<OdaRezervasyon> odaRezervasyonlari)
+        {
+            ListViewItem li = new ListViewItem();
+            li.SubItems.Add(item.Oda.Numarasi.ToString());
+            li.SubItems.Add(item.Oda.YatakSayisi.ToString());
+            li.SubItems.Add(item.Musteri.AdSoyad);
+            li.SubItems.Add(item.Musteri.TC);
+            li.SubItems.Add(item.GirisTarihi.ToString());
+            li.SubItems.Add(item.CikisTarihi.ToString());
+
+            li.Tag = item;
+            lstSonuc.Items.Add(li);
+        }
     }
 }

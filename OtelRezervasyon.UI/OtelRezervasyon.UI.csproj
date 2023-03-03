@@ -64,12 +64,6 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOdaDurum.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmOdaDurum.Designer.cs">
-      <DependentUpon>FrmOdaDurum.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmRapor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmOdaDurum.resx">
-      <DependentUpon>FrmOdaDurum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRapor.resx">
       <DependentUpon>FrmRapor.cs</DependentUpon>

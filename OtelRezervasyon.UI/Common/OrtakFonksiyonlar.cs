@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,10 +11,71 @@ namespace OtelRezervasyon.UI.Common
 {
     public class OrtakFonksiyonlar
     {
-      
+
+        public bool TarihKarsilastir(string s1, string s2)
+        {
+            DateTime dt1 = Convert.ToDateTime(s1);
+            DateTime dt2 = Convert.ToDateTime(s2);
+            if (dt1 <= dt2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public bool BosMu(params string[] texts)
+        {
+            foreach (var item in texts)
+            {
+                //boş ise girer
+                if (string.IsNullOrWhiteSpace(item) || item.Length < 2)
+                {
+                    return false;
+                }
+            }
+            //boş değil
+            return true;
+        }
+
+        public bool SayiVarMi(params string[] texts)
+        {
+            foreach (var item in texts)
+            {
+                //sayi varsa girer
+                if (item.Any(char.IsDigit))
+                {
+                    return false;
+                }
+            }
+            //sayi yok
+            return true;
+        }
+        public bool TelefonNoKontrol(string telefonNo)
+        {
+            return Regex.IsMatch(telefonNo, @"^(5(\d{2})-(\d{3})-(\d{2})-(\d{2}))$", RegexOptions.IgnoreCase);
+        }
+
+        public bool TcKontrol(string tc)
+        {
+            //return (tc.Length != 11 && tc.Substring(0, 1) != "0" && tc.Substring(10, 1) != "1" && tc.Substring(10, 1) != "1" && tc.Substring(10, 1) != "3" && tc.Substring(10, 1) != "5" && tc.Substring(10, 1) != "7" && tc.Substring(10, 1) != "9")
+            //	? true
+            //	: false;
+            #region uzun if
+
+            if (tc.Length == 11 && tc.Substring(0, 1) != "0" && tc.Substring(10, 1) != "1" && tc.Substring(10, 1) != "1" && tc.Substring(10, 1) != "3" && tc.Substring(10, 1) != "5" && tc.Substring(10, 1) != "7" && tc.Substring(10, 1) != "9")
+            {
+                return true;
+            }
+            return false;
+            #endregion
+
+        }
         public void OdaDurumuBelirle(Button tiklanilanButon, int durum)// Bos = 1 REnk sari,        Dolu = 2 renk kırmızı,        Temizlik = 3 renk mavi
         {
-          
+
             switch (durum)
             {
                 case 1:
@@ -26,7 +88,8 @@ namespace OtelRezervasyon.UI.Common
                     tiklanilanButon.BackColor = Color.Blue;
                     break;
             }
-        } 
-        
+        }
+
+
     }
 }

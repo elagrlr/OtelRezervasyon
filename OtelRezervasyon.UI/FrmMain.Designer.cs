@@ -35,7 +35,6 @@
             this.ıslemlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.odemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.odaDurumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tumRaporlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -78,8 +77,7 @@
             // 
             this.ıslemlerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acToolStripMenuItem,
-            this.odemeToolStripMenuItem,
-            this.odaDurumToolStripMenuItem});
+            this.odemeToolStripMenuItem});
             this.ıslemlerToolStripMenuItem.Name = "ıslemlerToolStripMenuItem";
             this.ıslemlerToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.ıslemlerToolStripMenuItem.Text = "Islemler";
@@ -97,13 +95,6 @@
             this.odemeToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.odemeToolStripMenuItem.Text = "Ödeme-Çıkış İşlemleri";
             this.odemeToolStripMenuItem.Click += new System.EventHandler(this.odemeToolStripMenuItem_Click);
-            // 
-            // odaDurumToolStripMenuItem
-            // 
-            this.odaDurumToolStripMenuItem.Name = "odaDurumToolStripMenuItem";
-            this.odaDurumToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
-            this.odaDurumToolStripMenuItem.Text = "Oda Durumu İşlemleri";
-            this.odaDurumToolStripMenuItem.Click += new System.EventHandler(this.odaDurumToolStripMenuItem_Click);
             // 
             // raporToolStripMenuItem
             // 
@@ -148,6 +139,5 @@
         private System.Windows.Forms.ToolStripMenuItem raporToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tumRaporlarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem odemeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem odaDurumToolStripMenuItem;
     }
 }

@@ -13,6 +13,7 @@ namespace OtelRezervasyon.UI.Common
         public DateTime GirisTarihi { get; set; }
         public DateTime CikisTarihi { get; set; }
         public List<Hizmet> EkstraHizmetler { get; set; }
+        public byte KisiSayisi { get; set; }
         public override string ToString()
         {
             return ((Oda.Numarasi).ToString());

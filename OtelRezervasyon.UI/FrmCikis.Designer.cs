@@ -41,20 +41,21 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnOdemeYap = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTutar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 47);
+            this.label1.Location = new System.Drawing.Point(1054, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 16);
+            this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Oda Numarası Seçin";
+            this.label1.Text = "Ekstra Hizmetler";
             // 
             // flEkstra
             // 
@@ -66,14 +67,14 @@
             // cmbOdalar
             // 
             this.cmbOdalar.FormattingEnabled = true;
-            this.cmbOdalar.Location = new System.Drawing.Point(163, 44);
+            this.cmbOdalar.Location = new System.Drawing.Point(163, 161);
             this.cmbOdalar.Name = "cmbOdalar";
             this.cmbOdalar.Size = new System.Drawing.Size(280, 24);
             this.cmbOdalar.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(450, 105);
+            this.button1.Location = new System.Drawing.Point(449, 161);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 27);
             this.button1.TabIndex = 2;
@@ -84,7 +85,6 @@
             // lstSonuc
             // 
             this.lstSonuc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
             this.columnHeader1,
             this.columnHeader3,
             this.columnHeader4,
@@ -95,9 +95,9 @@
             this.columnHeader9,
             this.columnHeader10});
             this.lstSonuc.HideSelection = false;
-            this.lstSonuc.Location = new System.Drawing.Point(12, 197);
+            this.lstSonuc.Location = new System.Drawing.Point(29, 241);
             this.lstSonuc.Name = "lstSonuc";
-            this.lstSonuc.Size = new System.Drawing.Size(920, 144);
+            this.lstSonuc.Size = new System.Drawing.Size(903, 152);
             this.lstSonuc.TabIndex = 5;
             this.lstSonuc.UseCompatibleStateImageBehavior = false;
             this.lstSonuc.View = System.Windows.Forms.View.Details;
@@ -141,39 +141,56 @@
             this.columnHeader9.Text = "Ara Toplam";
             this.columnHeader9.Width = 100;
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Toplam Tutar";
+            this.columnHeader10.Width = 100;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 105);
+            this.label2.Location = new System.Drawing.Point(26, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 16);
+            this.label2.Size = new System.Drawing.Size(131, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Çıkış Tarihi Seçin";
+            this.label2.Text = "Oda Numarası Seçin";
             // 
-            // maskedTextBox1
+            // btnOdemeYap
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(163, 105);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(124, 22);
-            this.maskedTextBox1.TabIndex = 7;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.btnOdemeYap.Location = new System.Drawing.Point(449, 415);
+            this.btnOdemeYap.Name = "btnOdemeYap";
+            this.btnOdemeYap.Size = new System.Drawing.Size(145, 23);
+            this.btnOdemeYap.TabIndex = 6;
+            this.btnOdemeYap.Text = "Ödeme Yap";
+            this.btnOdemeYap.UseVisualStyleBackColor = true;
+            this.btnOdemeYap.Click += new System.EventHandler(this.btnOdemeYap_Click);
             // 
-            // columnHeader10
+            // label3
             // 
-            this.columnHeader10.Text = "Toplam";
-            this.columnHeader10.Width = 100;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(160, 418);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Toplam Fatura Tutarı :";
             // 
-            // columnHeader2
+            // lblTutar
             // 
-            this.columnHeader2.Text = "No";
+            this.lblTutar.AutoSize = true;
+            this.lblTutar.Location = new System.Drawing.Point(318, 418);
+            this.lblTutar.Name = "lblTutar";
+            this.lblTutar.Size = new System.Drawing.Size(10, 16);
+            this.lblTutar.TabIndex = 7;
+            this.lblTutar.Text = " ";
             // 
             // FrmCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1389, 713);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.lblTutar);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnOdemeYap);
             this.Controls.Add(this.lstSonuc);
             this.Controls.Add(this.cmbOdalar);
             this.Controls.Add(this.flEkstra);
@@ -202,9 +219,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnOdemeYap;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTutar;
     }
 }

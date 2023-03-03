@@ -45,11 +45,6 @@ namespace OtelRezervasyon.UI
             frmCikis.Show();
         }
 
-        private void odaDurumToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmOdaDurum fRmOdaDurum = new FrmOdaDurum(frmRezervasyonGiris.Tag as List<OdaRezervasyon>);
-            fRmOdaDurum.MdiParent = this;
-            fRmOdaDurum.Show();
-        }
+         
     }
 }

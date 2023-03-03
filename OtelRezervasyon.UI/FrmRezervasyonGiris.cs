@@ -23,12 +23,13 @@ namespace OtelRezervasyon.UI
         {
             this.odaRezervasyons = odaRezervasyons;
         }
-        List<TextBox> textBoxes= new List<TextBox>();
+
+        List<TextBox> textBoxes = new List<TextBox>();
         Button tiklanilanButon = null;
         public List<OdaRezervasyon> odaRezervasyonlari = new List<OdaRezervasyon>();
         OrtakFonksiyonlar ort = new OrtakFonksiyonlar();
         private List<OdaRezervasyon> odaRezervasyons;
-
+        OdaRezervasyon odarez = new OdaRezervasyon();
         private void FrmRezervasyonGiris_Load(object sender, EventArgs e)
         {
 
@@ -44,10 +45,10 @@ namespace OtelRezervasyon.UI
                     Fiyat = 1000,
                     Numarasi = 400,
                     OdaDurumu = (int)OdaDurumu.Bos,
-                    YatakSayisi = 1
+                    YatakSayisi = 5
                 },
                 Musteri = new Musteri()
-            }; ;
+            };
             btnKral.Click += Btn_Click;
             flKat4.Controls.Add(btnKral);
 
@@ -134,15 +135,15 @@ namespace OtelRezervasyon.UI
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-
-            OdaRezervasyon odarez = new OdaRezervasyon();
-            odarez = tiklanilanButon.Tag as OdaRezervasyon;
-
-            for (byte i=0;i<odarez.Oda.YatakSayisi;i++)
+            //validasyon kontrol
+            if (ort.BosMu(txtAdSoyad.Text, txtTC.Text, mstTel.Text, mstDogumTarihi.Text, mstGirisTarihi.Text, mstCikisTarihi.Text) && ort.TcKontrol(txtTC.Text) && ort.SayiVarMi(txtAdSoyad.Text) && ort.TarihKarsilastir(mstGirisTarihi.Text, mstCikisTarihi.Text))
             {
+                odarez = tiklanilanButon.Tag as OdaRezervasyon;
+
+                //oda bos mu kontrol et
                 if (odarez.Oda.OdaDurumu == (int)OdaDurumu.Bos)
                 {
-                    //rez al yatak sayısıını da kontrol et
+
                     odarez.Musteri = new Musteri()
                     {
                         AdSoyad = txtAdSoyad.Text,
@@ -150,52 +151,57 @@ namespace OtelRezervasyon.UI
                         Tel = mstTel.Text,
                         TC = txtTC.Text
                     };
+
+                    odarez.KisiSayisi = Convert.ToByte(nmKisi.Value);
                     odarez.GirisTarihi = Convert.ToDateTime(mstGirisTarihi.Text);
-                    
-                    odaRezervasyonlari.Add(odarez);
+                    odarez.CikisTarihi = Convert.ToDateTime(mstCikisTarihi.Text);
+
+                    //odanın yatak sayısı müşterinin isteğini karşılıyor mu kontrol et
+                    if (odarez.KisiSayisi <= odarez.Oda.YatakSayisi)
+                    {
+                        odarez.Oda.OdaDurumu = (int)OdaDurumu.Dolu;
+                        ort.OdaDurumuBelirle(tiklanilanButon, odarez.Oda.OdaDurumu);
+
+                        odaRezervasyonlari.Add(odarez);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Odanın kişi sayısı isteğe uygun değil.");
+                    }
+
+
                     this.Tag = odaRezervasyonlari;
-                    MessageBox.Show("{0}. kişi kaydedildi",(i+1).ToString());
-                 
-                    Temizle(txtAdSoyad, txtTC, mstDogumTarihi, mstTel);
-                    continue;
+
                 }
                 else
                 {
                     //oda dolu 
                     MessageBox.Show("Oda Dolu");
                 }
-            }
-            odarez.Oda.OdaDurumu = (int)OdaDurumu.Dolu;
-            ort.OdaDurumuBelirle(tiklanilanButon, odarez.Oda.OdaDurumu);
-        }
+                Temizle(txtAdSoyad, txtTC, mstDogumTarihi, mstTel);
 
-        
+            }
+            else
+            {
+                MessageBox.Show("Eksik/Hatalı girilen bilgiler var. Lütfen bilgileri kontrol edin.");
+            }
+
+
+
+        }
+        //odayı temizliğe al
+        private void btnTemizlik_Click(object sender, EventArgs e)
+        {
+            if (tiklanilanButon.BackColor == Color.Red)
+            {
+                MessageBox.Show("Oda doluyken temizlik hizmeti istenemez.");
+            }
+            else
+            {
+                ort.OdaDurumuBelirle(tiklanilanButon, 3);
+            }
+
+        }
     }
 }
-/*
- for (byte i=0;i<rezervasyon.Oda.YatakSayisi;i++)
-            { 
-Label lbl = new Label();
-lbl.Text = "Adı Soyadı";
-txtAdSoyad = new TextBox();
-Label lbl2 = new Label();
-lbl2.Text = "Tc Kimlik No";
-txtTC = new TextBox();
-Label lbl3 = new Label();
-lbl3.Text = "Telefon";
-txtTel = new TextBox();
-Label lbl4 = new Label();
-lbl4.Text = "Doğum Tarihi";
-txtDogumTarihi = new TextBox();
-flKisi.Controls.Add(lbl);
-flKisi.Controls.Add(txtAdSoyad);
-flKisi.Controls.Add(lbl2);
-flKisi.Controls.Add(txtTC);
-flKisi.Controls.Add(lbl3);
-flKisi.Controls.Add(txtTel);
-flKisi.Controls.Add(lbl4);
-flKisi.Controls.Add(txtDogumTarihi);
-Temizle(txtTC, txtTel, txtAdSoyad, txtDogumTarihi);
-                 
-            }
- */
