@@ -317,7 +317,7 @@
             this.Controls.Add(this.lstRapor);
             this.Name = "FrmRapor";
             this.Text = "FrmRapor";
-            this.Load += new System.EventHandler(this.FrmRapor_Load);
+            //this.Load += new System.EventHandler(this.FrmRapor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

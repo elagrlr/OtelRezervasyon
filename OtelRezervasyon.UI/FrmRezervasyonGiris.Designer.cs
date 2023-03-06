@@ -60,30 +60,30 @@
             // 
             // flKat1
             // 
-            this.flKat1.Location = new System.Drawing.Point(20, 26);
+            this.flKat1.Location = new System.Drawing.Point(30, 26);
             this.flKat1.Name = "flKat1";
-            this.flKat1.Size = new System.Drawing.Size(450, 120);
+            this.flKat1.Size = new System.Drawing.Size(341, 120);
             this.flKat1.TabIndex = 0;
             // 
             // flKat2
             // 
-            this.flKat2.Location = new System.Drawing.Point(20, 152);
+            this.flKat2.Location = new System.Drawing.Point(30, 152);
             this.flKat2.Name = "flKat2";
-            this.flKat2.Size = new System.Drawing.Size(450, 120);
+            this.flKat2.Size = new System.Drawing.Size(341, 120);
             this.flKat2.TabIndex = 0;
             // 
             // flKat3
             // 
-            this.flKat3.Location = new System.Drawing.Point(20, 278);
+            this.flKat3.Location = new System.Drawing.Point(30, 278);
             this.flKat3.Name = "flKat3";
-            this.flKat3.Size = new System.Drawing.Size(450, 120);
+            this.flKat3.Size = new System.Drawing.Size(341, 120);
             this.flKat3.TabIndex = 0;
             // 
             // flKat4
             // 
-            this.flKat4.Location = new System.Drawing.Point(20, 404);
+            this.flKat4.Location = new System.Drawing.Point(30, 404);
             this.flKat4.Name = "flKat4";
-            this.flKat4.Size = new System.Drawing.Size(450, 120);
+            this.flKat4.Size = new System.Drawing.Size(341, 120);
             this.flKat4.TabIndex = 0;
             // 
             // groupBox1
@@ -94,7 +94,7 @@
             this.groupBox1.Controls.Add(this.flKat3);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(494, 546);
+            this.groupBox1.Size = new System.Drawing.Size(403, 546);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Otelin Genel Durumu";
@@ -116,23 +116,23 @@
             this.grpKisiBilgisi.Controls.Add(this.lblCikisTarihi);
             this.grpKisiBilgisi.Controls.Add(this.lblDogumTarihi);
             this.grpKisiBilgisi.Controls.Add(this.lblGirisTarihi);
-            this.grpKisiBilgisi.Location = new System.Drawing.Point(540, 12);
+            this.grpKisiBilgisi.Location = new System.Drawing.Point(421, 12);
             this.grpKisiBilgisi.Name = "grpKisiBilgisi";
-            this.grpKisiBilgisi.Size = new System.Drawing.Size(516, 601);
+            this.grpKisiBilgisi.Size = new System.Drawing.Size(516, 546);
             this.grpKisiBilgisi.TabIndex = 2;
             this.grpKisiBilgisi.TabStop = false;
             this.grpKisiBilgisi.Text = "Müşteri Bilgileri";
             // 
             // nmKisi
             // 
-            this.nmKisi.Location = new System.Drawing.Point(126, 250);
+            this.nmKisi.Location = new System.Drawing.Point(212, 238);
             this.nmKisi.Name = "nmKisi";
             this.nmKisi.Size = new System.Drawing.Size(156, 27);
             this.nmKisi.TabIndex = 4;
             // 
             // mstCikisTarihi
             // 
-            this.mstCikisTarihi.Location = new System.Drawing.Point(126, 318);
+            this.mstCikisTarihi.Location = new System.Drawing.Point(212, 306);
             this.mstCikisTarihi.Mask = "00/00/0000";
             this.mstCikisTarihi.Name = "mstCikisTarihi";
             this.mstCikisTarihi.Size = new System.Drawing.Size(156, 27);
@@ -141,7 +141,7 @@
             // 
             // mstGirisTarihi
             // 
-            this.mstGirisTarihi.Location = new System.Drawing.Point(126, 285);
+            this.mstGirisTarihi.Location = new System.Drawing.Point(212, 273);
             this.mstGirisTarihi.Mask = "00/00/0000";
             this.mstGirisTarihi.Name = "mstGirisTarihi";
             this.mstGirisTarihi.Size = new System.Drawing.Size(156, 27);
@@ -150,7 +150,7 @@
             // 
             // mstDogumTarihi
             // 
-            this.mstDogumTarihi.Location = new System.Drawing.Point(126, 217);
+            this.mstDogumTarihi.Location = new System.Drawing.Point(212, 205);
             this.mstDogumTarihi.Mask = "00/00/0000";
             this.mstDogumTarihi.Name = "mstDogumTarihi";
             this.mstDogumTarihi.Size = new System.Drawing.Size(156, 27);
@@ -159,7 +159,7 @@
             // 
             // mstTel
             // 
-            this.mstTel.Location = new System.Drawing.Point(126, 184);
+            this.mstTel.Location = new System.Drawing.Point(212, 172);
             this.mstTel.Mask = "(999) 000-0000";
             this.mstTel.Name = "mstTel";
             this.mstTel.Size = new System.Drawing.Size(156, 27);
@@ -168,7 +168,7 @@
             // lblKisiSayisi
             // 
             this.lblKisiSayisi.AutoSize = true;
-            this.lblKisiSayisi.Location = new System.Drawing.Point(15, 252);
+            this.lblKisiSayisi.Location = new System.Drawing.Point(101, 240);
             this.lblKisiSayisi.Name = "lblKisiSayisi";
             this.lblKisiSayisi.Size = new System.Drawing.Size(87, 20);
             this.lblKisiSayisi.TabIndex = 2;
@@ -177,7 +177,7 @@
             // lblAdSoyad
             // 
             this.lblAdSoyad.AutoSize = true;
-            this.lblAdSoyad.Location = new System.Drawing.Point(15, 108);
+            this.lblAdSoyad.Location = new System.Drawing.Point(101, 96);
             this.lblAdSoyad.Name = "lblAdSoyad";
             this.lblAdSoyad.Size = new System.Drawing.Size(88, 20);
             this.lblAdSoyad.TabIndex = 2;
@@ -185,14 +185,14 @@
             // 
             // txtAdSoyad
             // 
-            this.txtAdSoyad.Location = new System.Drawing.Point(126, 105);
+            this.txtAdSoyad.Location = new System.Drawing.Point(212, 93);
             this.txtAdSoyad.Name = "txtAdSoyad";
             this.txtAdSoyad.Size = new System.Drawing.Size(156, 27);
             this.txtAdSoyad.TabIndex = 1;
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(126, 369);
+            this.btnEkle.Location = new System.Drawing.Point(212, 357);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(156, 41);
             this.btnEkle.TabIndex = 0;
@@ -203,7 +203,7 @@
             // lblTCKN
             // 
             this.lblTCKN.AutoSize = true;
-            this.lblTCKN.Location = new System.Drawing.Point(15, 147);
+            this.lblTCKN.Location = new System.Drawing.Point(101, 135);
             this.lblTCKN.Name = "lblTCKN";
             this.lblTCKN.Size = new System.Drawing.Size(104, 20);
             this.lblTCKN.TabIndex = 2;
@@ -211,7 +211,7 @@
             // 
             // txtTC
             // 
-            this.txtTC.Location = new System.Drawing.Point(126, 147);
+            this.txtTC.Location = new System.Drawing.Point(212, 135);
             this.txtTC.Name = "txtTC";
             this.txtTC.Size = new System.Drawing.Size(156, 27);
             this.txtTC.TabIndex = 1;
@@ -219,7 +219,7 @@
             // lblTelefon
             // 
             this.lblTelefon.AutoSize = true;
-            this.lblTelefon.Location = new System.Drawing.Point(15, 187);
+            this.lblTelefon.Location = new System.Drawing.Point(101, 175);
             this.lblTelefon.Name = "lblTelefon";
             this.lblTelefon.Size = new System.Drawing.Size(64, 20);
             this.lblTelefon.TabIndex = 2;
@@ -228,7 +228,7 @@
             // lblCikisTarihi
             // 
             this.lblCikisTarihi.AutoSize = true;
-            this.lblCikisTarihi.Location = new System.Drawing.Point(15, 325);
+            this.lblCikisTarihi.Location = new System.Drawing.Point(101, 313);
             this.lblCikisTarihi.Name = "lblCikisTarihi";
             this.lblCikisTarihi.Size = new System.Drawing.Size(93, 20);
             this.lblCikisTarihi.TabIndex = 2;
@@ -237,7 +237,7 @@
             // lblDogumTarihi
             // 
             this.lblDogumTarihi.AutoSize = true;
-            this.lblDogumTarihi.Location = new System.Drawing.Point(15, 224);
+            this.lblDogumTarihi.Location = new System.Drawing.Point(101, 212);
             this.lblDogumTarihi.Name = "lblDogumTarihi";
             this.lblDogumTarihi.Size = new System.Drawing.Size(110, 20);
             this.lblDogumTarihi.TabIndex = 2;
@@ -246,7 +246,7 @@
             // lblGirisTarihi
             // 
             this.lblGirisTarihi.AutoSize = true;
-            this.lblGirisTarihi.Location = new System.Drawing.Point(15, 292);
+            this.lblGirisTarihi.Location = new System.Drawing.Point(101, 280);
             this.lblGirisTarihi.Name = "lblGirisTarihi";
             this.lblGirisTarihi.Size = new System.Drawing.Size(92, 20);
             this.lblGirisTarihi.TabIndex = 2;
@@ -254,7 +254,7 @@
             // 
             // btnTemizlik
             // 
-            this.btnTemizlik.Location = new System.Drawing.Point(335, 576);
+            this.btnTemizlik.Location = new System.Drawing.Point(244, 564);
             this.btnTemizlik.Name = "btnTemizlik";
             this.btnTemizlik.Size = new System.Drawing.Size(171, 37);
             this.btnTemizlik.TabIndex = 3;
@@ -270,7 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1091, 745);
+            this.ClientSize = new System.Drawing.Size(960, 745);
             this.Controls.Add(this.btnTemizlik);
             this.Controls.Add(this.grpKisiBilgisi);
             this.Controls.Add(this.groupBox1);

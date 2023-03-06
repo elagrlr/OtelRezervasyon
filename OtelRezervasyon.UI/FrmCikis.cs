@@ -15,7 +15,11 @@ namespace OtelRezervasyon.UI
     {
         private List<OdaRezervasyon> odaRezervasyonlari;
         OrtakFonksiyonlar ort = new OrtakFonksiyonlar();
+        List<Hizmet> hizmetler = new List<Hizmet>();
+        List<OdaRezervasyon> doluOdalar = new List<OdaRezervasyon>();
 
+        string ekHizmetToplam;
+        double toplam = 0,hizmetToplam = 0, araToplam = 0;
         public FrmCikis()
         {
             InitializeComponent();
@@ -26,7 +30,11 @@ namespace OtelRezervasyon.UI
             this.odaRezervasyonlari = odaRezervasyonlari;
         }
 
-        List<OdaRezervasyon> doluOdalar = new List<OdaRezervasyon>();
+        /// <summary>
+        /// Dolu odaları listeleme fonksiyonu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmCikis_Load(object sender, EventArgs e)
         {
             foreach (var item in odaRezervasyonlari)
@@ -41,21 +49,28 @@ namespace OtelRezervasyon.UI
             EkHizmetleriEkle();
         }
 
+        /// <summary>
+        /// Otelde kalinan gun sayisini hesaplayan fonksiyon
+        /// </summary>
+        /// <param name="GirisTarihi"></param>
+        /// <param name="CikisTarihi"></param>
+        /// <returns></returns>
         public int KalinacakGunSayisi(DateTime GirisTarihi, DateTime CikisTarihi)
         {
             return (GirisTarihi - CikisTarihi).Days;
         }
-        double toplam = 0;
-        double hizmetToplam = 0;
-        double araToplam = 0;
+       
+        /// <summary>
+        /// Fatura hesaplama fonksiyonu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-
             foreach (OdaRezervasyon item in odaRezervasyonlari)
             {
                 if (cmbOdalar.SelectedValue.ToString() == item.Oda.Numarasi.ToString())
                 {
-
                     int kalinanGunSayisi = KalinacakGunSayisi(item.CikisTarihi, item.GirisTarihi);
 
                     item.EkstraHizmetler = EkstraHesapla();
@@ -64,7 +79,6 @@ namespace OtelRezervasyon.UI
                     araToplam = ((kalinanGunSayisi * item.Oda.Fiyat));
                     toplam = araToplam + hizmetToplam;
 
-                    //todo: listte ödeme bilgilerini de listele
                     KayitlariListele(item, odaRezervasyonlari);
 
                     item.Oda.OdaDurumu = 1;
@@ -72,7 +86,11 @@ namespace OtelRezervasyon.UI
                 }
             }
         }
-        List<Hizmet> hizmetler = new List<Hizmet>();
+       
+       /// <summary>
+       /// ekstra hizmetleri listeleme fonksiyonu
+       /// </summary>
+       /// <returns></returns>
         private List<Hizmet> EkstraHesapla()
         {
             foreach (CheckBox item in flEkstra.Controls)
@@ -84,8 +102,9 @@ namespace OtelRezervasyon.UI
             }
             return hizmetler;
         }
-
-        string ekHizmetToplam;
+        /// <summary>
+        /// Ek hizmetleri panele ekleme fonksiyonu
+        /// </summary>
         void EkHizmetleriEkle()
         {
             flEkstra.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { HizmetAdi = "Kola", HizmetFiyati = 10 } });
@@ -97,19 +116,24 @@ namespace OtelRezervasyon.UI
             flEkstra.Controls.Add(new CheckBox() { Text = "Ütü", Tag = new Hizmet() { HizmetAdi = "Ütü", HizmetFiyati = 10 } });
             flEkstra.Controls.Add(new CheckBox() { Text = "Masaj", Tag = new Hizmet() { HizmetAdi = "Masaj", HizmetFiyati = 10 } });
             flEkstra.Controls.Add(new CheckBox() { Text = "Sauna", Tag = new Hizmet() { HizmetAdi = "Sauna", HizmetFiyati = 10 } });
-
-
-
         }
-
+        /// <summary>
+        /// Odeme alma fonksiyonu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOdemeYap_Click(object sender, EventArgs e)
         {
-
             MessageBox.Show("Oda Ücreti :" + araToplam + " TL\n Ekstar Hizmet Ücretleri: " + hizmetToplam + " TL\n Toplam Ücret: " + toplam + " TL", "Ödeme Ekranı", MessageBoxButtons.OK);
             toplam = 0;
             lblTutar.Text = toplam.ToString() + " TL";
         }
 
+        /// <summary>
+        /// kayitlari listeleyen fonksiyon
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="odaRezervasyonlari"></param>
         private void KayitlariListele(OdaRezervasyon item, List<OdaRezervasyon> odaRezervasyonlari)
         {
             ListViewItem li = new ListViewItem();
@@ -125,3 +149,4 @@ namespace OtelRezervasyon.UI
         }
     }
 }
+  

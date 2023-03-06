@@ -13,6 +13,7 @@ namespace OtelRezervasyon.UI
 {
     public partial class FrmRapor : Form
     {
+        private List<OdaRezervasyon> odaRezervasyonlari;
         public FrmRapor()
         {
             InitializeComponent();
@@ -22,31 +23,33 @@ namespace OtelRezervasyon.UI
         {
             this.odaRezervasyonlari = odaRezervasyonlari;
         }
-        private List<OdaRezervasyon> odaRezervasyonlari;
 
-        private void FrmRapor_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        //girilen tarihe göre arama yap
+        /// <summary>
+        /// Girilen tarihe göre arama yapan event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTarihAra_Click(object sender, EventArgs e)
         {
             lstRapor.Items.Clear();
+
             int sayac = 1;
+
             foreach (OdaRezervasyon item in odaRezervasyonlari)
             {
                 DateTime dt = Convert.ToDateTime(mstTarih.Text);
                 if (item.GirisTarihi == dt || item.CikisTarihi == dt)
                 {
                     KayitlariListele(item, odaRezervasyonlari, sayac);
-
                 }
-
             }
         }
-        //tüm kayıtları listele
 
+        /// <summary>
+        /// Tüm kayıtları listeleyen event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnListele_Click(object sender, EventArgs e)
         {
             lstRapor.Items.Clear();
@@ -54,17 +57,20 @@ namespace OtelRezervasyon.UI
             foreach (OdaRezervasyon item in odaRezervasyonlari)
             {
                 KayitlariListele(item, odaRezervasyonlari, sayac);
-
             }
         }
-        //girilen tarih aralığına göre arama yap
+
+        /// <summary>
+        /// Girilen tarih aralığına göre arama yapan event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTarihAraligiAra_Click(object sender, EventArgs e)
         {
             lstRapor.Items.Clear();
             int sayac = 1;
             foreach (OdaRezervasyon item in odaRezervasyonlari)
             {
-
                 DateTime dt = Convert.ToDateTime(mstTarihAraligi1.Text);
                 DateTime dt2 = Convert.ToDateTime(mstTarihAraligi2.Text);
 
@@ -72,10 +78,14 @@ namespace OtelRezervasyon.UI
                 {
                     KayitlariListele(item, odaRezervasyonlari, sayac);
                 }
-
             }
         }
-        //girilen isme göre arama
+
+        /// <summary>
+        /// Girilen isme göre arama yapan event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIsimAra_Click(object sender, EventArgs e)
         {
             lstRapor.Items.Clear();
@@ -83,8 +93,6 @@ namespace OtelRezervasyon.UI
             int sayac = 1;
             foreach (OdaRezervasyon item in odaRezervasyonlari)
             {
-
-
                 if (item.Musteri.AdSoyad.ToLower().Contains(arananKelime))
                 {
                     KayitlariListele(item, odaRezervasyonlari, sayac);
@@ -96,10 +104,17 @@ namespace OtelRezervasyon.UI
                 MessageBox.Show("Aradığınız isimde bir müşteri bulunamadı.");
             }
         }
-        //listview'in içini doldurma
+
+        /// <summary>
+        /// Listview'in içini dolduran event
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="odaRezervasyonlari"></param>
+        /// <param name="sayac"></param>
         private void KayitlariListele(OdaRezervasyon item, List<OdaRezervasyon> odaRezervasyonlari, int sayac)
         {
             ListViewItem li = new ListViewItem();
+
             li.Text = (sayac++).ToString();
             li.SubItems.Add(item.Oda.Numarasi.ToString());
             li.SubItems.Add(item.Oda.YatakSayisi.ToString());

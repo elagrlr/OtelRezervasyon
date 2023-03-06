@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flEkstra = new System.Windows.Forms.FlowLayoutPanel();
             this.cmbOdalar = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHesapla = new System.Windows.Forms.Button();
             this.lstSonuc = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,15 +72,15 @@
             this.cmbOdalar.Size = new System.Drawing.Size(280, 24);
             this.cmbOdalar.TabIndex = 4;
             // 
-            // button1
+            // btnHesapla
             // 
-            this.button1.Location = new System.Drawing.Point(449, 161);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 27);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Hesapla";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnHesapla.Location = new System.Drawing.Point(449, 161);
+            this.btnHesapla.Name = "btnHesapla";
+            this.btnHesapla.Size = new System.Drawing.Size(145, 27);
+            this.btnHesapla.TabIndex = 2;
+            this.btnHesapla.Text = "Hesapla";
+            this.btnHesapla.UseVisualStyleBackColor = true;
+            this.btnHesapla.Click += new System.EventHandler(this.button1_Click);
             // 
             // lstSonuc
             // 
@@ -194,7 +194,7 @@
             this.Controls.Add(this.lstSonuc);
             this.Controls.Add(this.cmbOdalar);
             this.Controls.Add(this.flEkstra);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHesapla);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmCikis";
@@ -209,7 +209,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flEkstra;
         private System.Windows.Forms.ComboBox cmbOdalar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHesapla;
         private System.Windows.Forms.ListView lstSonuc;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
